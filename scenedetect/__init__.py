@@ -114,6 +114,7 @@ def detect(
     start_time: Optional[Union[str, float, int]] = None,
     end_time: Optional[Union[str, float, int]] = None,
     start_in_scene: bool = False,
+    frame_skip: Optional[int] = 0,
 ) -> List[Tuple[FrameTimecode, FrameTimecode]]:
     """Perform scene detection on a given video `path` using the specified `detector`.
 
@@ -157,6 +158,7 @@ def detect(
         video=video,
         show_progress=show_progress,
         end_time=end_time,
+        frame_skip=frame_skip
     )
     if not scene_manager.stats_manager is None:
         scene_manager.stats_manager.save_to_csv(csv_file=stats_file_path)
